@@ -18,6 +18,73 @@
 
 ---
 
+## ❓ Questions This Dashboard Answers
+
+### Page 1: Overview
+
+**KPI cards: "Where do we stand right now?"**
+- The company spends **$17M** on salaries.
+- It has **689 employees**.
+- They worked **9,441 overtime hours**, costing **$155K**.
+
+| Chart | Question | Short Answer |
+|---|---|---|
+| Hires by Quarter | Does hiring follow a seasonal pattern? | No, hiring is steady. Q2 is highest (181) and Q3 lowest (160). |
+| Leave Days by Gender & Country | Who takes the most leave, and from which country? | Men (1,106 days) take more than women (526), and Egypt has the largest share (908), but this reflects headcount, not behavior. |
+| Avg Salary by Center | Does one center pay more? | East pays **$2,274**, about 15% above South (**$1,981**). |
+| Overtime per Department | Which departments are running at full capacity? | Quality Control and Manufacturing (about 1,700 hours each). |
+| Performance Flag per Country | How is performance distributed across countries? | 339 bonuses vs 142 deductions, with similar proportions in every country. |
+| Split Gender | What is the gender makeup? | 65% men and 35% women. |
+
+### Page 2: Details
+
+| Chart | Question | Short Answer |
+|---|---|---|
+| Salary by Dept (Male vs Female) | Is there a pay gap between men and women? | Not company-wide ($14 difference), but yes inside specific departments (e.g., Research Center: $2,051 vs $1,230). |
+| Sick Leaves per Department | Where are sick leaves concentrated? | In Manufacturing (197) and the departments with the highest overtime. |
+| Top 10 Overtime | Who is carrying the overtime? | 3 of the top 4 are from Quality Control, led by Omar Hishan with 198 hours. |
+| Job Rate Distribution | How are job ratings distributed? | 49% of the team sits in the top two tiers (4.5 and 5). |
+
+### Questions That Emerge From Combining Charts
+
+- **Does workload affect health?** Yes. The departments with the most overtime are also the ones with the most sick leave.
+- **Is overtime distributed fairly?** No. It is concentrated in a few people and departments.
+- **Is evaluation consistent across branches?** Most likely, since Bonus and Deduction ratios are similar in every country.
+
+> 💡 The slicers let you ask any of these questions for a specific slice, for example: *"What does the picture look like for women in the East center?"*
+
+---
+
+## 🎨 Dashboard Design
+
+The dashboard follows a clean, consistent **blue-teal corporate theme** so the numbers stay the focus and nothing competes for attention.
+
+### Color Palette
+
+| Role | Color | Where it's used |
+|---|---|---|
+| **Header banner** | Teal blue | Title bar at the top of both pages, with a white bold title |
+| **KPI cards & filter panel** | Deep navy-teal | Dark backgrounds with white text for maximum contrast |
+| **Chart titles** | Bright sky blue | Makes every chart title easy to spot against the light cards |
+| **Chart series** | Dark teal + light blue | Two-tone bars and pie slices (e.g., Female = dark, Male = light) |
+| **Page background** | Pale blue-gray | Soft canvas that lets the cards stand out |
+
+### Layout
+
+**Page 1: Overview**
+
+<img width="1403" height="713" alt="image" src="https://github.com/user-attachments/assets/a546ceca-9106-4a2b-9468-78106f48de17" />
+
+
+
+
+**Page 2: Details**
+
+<img width="1191" height="625" alt="image" src="https://github.com/user-attachments/assets/ed587180-1856-4195-a20d-9bf9c21f0602" />
+
+
+---
+
 ## 🎛️ Filters (Slicers), Left Side of Both Pages
 
 The slicers control **every chart at once**, so you can zoom into any slice of the company:
@@ -43,7 +110,7 @@ The slicers control **every chart at once**, so you can zoom into any slice of t
 | 💰 **Total Net Salary** | **$17,063,373** | The total the company spends on salaries. A big number that frames the scale of everything that follows. |
 | 👥 **Number Of Employees** | **689** | The size of the whole team. Every later analysis is measured against this number. |
 | ⏱️ **Total Overtime Hours** | **9,441 hours** | The team worked over 9,000 extra hours, about **13.7 hours per employee** on average. The key question: is this heavy workload or weak planning? |
-| 💵 **Fourth card** | **$24,765.42** | The average annual net salary per employee (see the labeling note at the end). |
+| 💵 **TotalOverTimePay** | **$155,095.14** | What the company paid for those extra hours: about **$16.43 per overtime hour** on average (155,095 ÷ 9,441). Roughly **0.9%** of the total salary bill, so overtime is a small cost but a big workload signal. |
 
 > ℹ️ **Extra figures from the pivot sheet:** average monthly salary **$2,068** · average Job Rate **3.59 out of 5** · total overtime pay **$155,095**.
 
@@ -63,13 +130,15 @@ The slicers control **every chart at once**, so you can zoom into any slice of t
 
 ## 🏖️ Chart 2: Total Leave Days by Gender and Country
 
-**Type:** Stacked column · **Question:** Who takes the most leave, and from which country?
+**Type:** Clustered column with data labels · **Question:** Who takes the most leave, and from which country?
 
 > **The story:** Total leave days are **1,632**. Men took **1,106 days** versus **526 days** for women.
 >
 > But **before concluding that men take more leave**, remember that men make up **65%** of the workforce. Much of the gap comes from headcount, not behavior.
 >
 > **Egypt** accounts for the largest share (**908 days**), followed by the UAE (**372**), Saudi Arabia (**191**), Syria (**134**), and Lebanon (**27**). That makes sense: Egypt has **379** employees, more than half the team.
+
+> The data labels make the split easy to read. **Men:** Egypt **579**, UAE **272**, Saudi Arabia **125**, Syria **121**, Lebanon **9**. **Women:** Egypt **329**, UAE **100**, Saudi Arabia **66**, Lebanon **18**, Syria **13**.
 
 **Takeaway:** Absolute numbers can mislead. A better metric is "leave days per employee" for each country.
 
@@ -85,7 +154,7 @@ The slicers control **every chart at once**, so you can zoom into any slice of t
 
 **Takeaway:** East is the standout center on pay. The open question is why: higher-level roles, more experience, or a geographic premium?
 
-> ⚠️ **Caution:** The Y-axis starts at $1,800, not zero, so the differences look visually larger than they really are.
+> ✅ The Y-axis now starts at zero, so the bars are honest. The consequence: the five centers look much closer than before, and East's lead (about 15% over South) is visible but modest. The numbers tell the story better than the bars here, so consider adding data labels.
 
 ---
 
@@ -103,7 +172,7 @@ The slicers control **every chart at once**, so you can zoom into any slice of t
 
 **Takeaway:** Quality Control and Manufacturing are the "pressure core" of the company, and likely candidates for additional headcount.
 
-> ⚠️ **Important note:** The chart as currently built on the dashboard displays numbers (197, 143, 135…) that are actually **Sick Leaves**, not overtime (see the issues section at the end).
+> ✅ The chart now correctly plots `Sum of Overtime Hours`, so the values on screen (1,700 / 1,699 / 1,264…) match the story above.
 
 ---
 
@@ -164,7 +233,7 @@ The slicers control **every chart at once**, so you can zoom into any slice of t
 
 ---
 
-## 🤒 Chart 8: Sick Leave Days by Department
+## 🤒 Chart 8: Sick Leaves per Department
 
 **Type:** Column chart · **Question:** Where are sick leaves concentrated?
 
@@ -178,7 +247,7 @@ The slicers control **every chart at once**, so you can zoom into any slice of t
 
 ---
 
-## 👤 Table: Top 10 Employees by Overtime Hours
+## 👤 Table: Top 10 — Overtime Hours
 
 **Type:** Pivot table · **Question:** Who is carrying the overtime?
 
@@ -221,6 +290,8 @@ The slicers control **every chart at once**, so you can zoom into any slice of t
 
 **Takeaway:** A strong team. The group to watch is the **142 employees** in the lowest two tiers, especially those in high-overtime departments.
 
+> ✅ The pie now plots `Count of Job Rate`, so the slices (70 / 72 / 208 / 124 / 215) match the table above.
+
 ---
 
 # 🧩 The Whole Story in 6 Sentences
@@ -231,21 +302,6 @@ The slicers control **every chart at once**, so you can zoom into any slice of t
 4. The **East center** pays roughly 10-15% more than the others.
 5. **Quality Control and Manufacturing** are the biggest pressure points: overtime plus sick leave.
 6. The overall male/female pay gap is zero, but it is **large inside specific departments**.
-
----
-
-# 🛠️ Dashboard Issues (Suggested Fixes)
-
-While comparing the screenshots against the Excel data, I found 4 items worth fixing:
-
-| # | Issue | Suggested Fix |
-|---|---|---|
-| 1 | The fourth KPI card is labeled **"Total Overtime Hours"** but shows **$24,765.42** (the average net salary) | Rename it **"Average Net Salary"**, or show **Total Overtime Pay = $155,095** |
-| 2 | The **TotalOverTimePerDepartment** chart displays **Sick Leaves** values (197, 143…) | Change the pivot field to `Sum of Overtime Hours` |
-| 3 | The **Job Rate Distribution** chart on Page 2 shows the **gender split** (34.83% / 65.17%) | Build a new pivot: Rows = `Job Rate`, Values = `Count of No` |
-| 4 | The hires chart orders quarters **Qtr4 → Qtr1** (reversed) | Sort the axis from Q1 to Q4 |
-
----
 
 ## 🧰 Tools Used
 
