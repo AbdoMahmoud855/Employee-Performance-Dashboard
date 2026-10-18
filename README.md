@@ -73,14 +73,16 @@ The dashboard follows a clean, consistent **blue-teal corporate theme** so the n
 
 **Page 1: Overview**
 
-<img width="1403" height="713" alt="image" src="https://github.com/user-attachments/assets/a546ceca-9106-4a2b-9468-78106f48de17" />
+<img width="1401" height="738" alt="e1" src="https://github.com/user-attachments/assets/9e62ab51-0a50-4106-a684-f1bc5fce4bf8" />
+
 
 
 
 
 **Page 2: Details**
 
-<img width="1191" height="625" alt="image" src="https://github.com/user-attachments/assets/ed587180-1856-4195-a20d-9bf9c21f0602" />
+
+<img width="1207" height="623" alt="e2" src="https://github.com/user-attachments/assets/d57fbb2f-d71f-4e89-b87a-9fa2ed21cb42" />
 
 
 ---
